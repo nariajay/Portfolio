@@ -1,0 +1,238 @@
+/* ===============================
+   ROOT VARIABLES (DARK THEME)
+================================ */
+:root {
+  --bg-main: #0b1220;        /* Main background */
+  --bg-section: #111827;    /* Section background */
+  --card-bg: #1f2933;       /* Cards */
+  --primary: #38bdf8;       /* Sky Blue */
+  --secondary: #22c55e;     /* Green accent */
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border-soft: #273244;
+}
+
+/* ===============================
+   GLOBAL
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.8;
+}
+
+/* ===============================
+   NAVBAR (NOT STICKY)
+================================ */
+.navbar {
+  position: relative; /* removed sticky */
+  background: rgba(17, 24, 39, 0.95);
+  padding: 18px 0;
+}
+
+.navbar-brand {
+  font-size: 1.6rem;
+  color: var(--primary) !important;
+}
+
+.nav-link {
+  color: var(--text-main) !important;
+  margin: 0 12px;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  left: 0;
+  bottom: -6px;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ===============================
+   SECTIONS & SPACING
+================================ */
+.section {
+  padding: 130px 0;   /* MORE SPACE */
+}
+
+.bg-soft {
+  background: var(--bg-section);
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+h1, h2, h4 {
+  font-weight: 700;
+}
+
+h2 {
+  margin-bottom: 30px;
+}
+
+p {
+  color: var(--text-muted);
+}
+
+/* Gradient text */
+h1 span {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===============================
+   BUTTONS (SMOOTH ANIMATION)
+================================ */
+.btn-main,
+.btn-outline-main {
+  border-radius: 30px;
+  padding: 12px 30px;
+  font-weight: 600;
+  transition: all 0.4s ease;
+}
+
+/* Main button */
+.btn-main {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #020617;
+  border: none;
+}
+
+.btn-main:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(56, 189, 248, 0.35);
+}
+
+/* Outline button */
+.btn-outline-main {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  background: transparent;
+}
+
+.btn-outline-main:hover {
+  background: var(--primary);
+  color: #020617;
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(56, 189, 248, 0.3);
+}
+
+/* ===============================
+   IMAGES (MODERN DARK STYLE)
+================================ */
+.profile-img,
+.about-img {
+  border-radius: 26px;
+  padding: 6px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  animation: float 5s ease-in-out infinite;
+}
+
+/* floating animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
+/* ===============================
+   SKILLS
+================================ */
+.skill-box {
+  background: var(--card-bg);
+  margin: 14px;
+  padding: 24px;
+  border-radius: 18px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.skill-box:hover {
+  transform: translateY(-10px) scale(1.03);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #020617;
+}
+
+/* ===============================
+   PROJECT CARDS
+================================ */
+.project-card {
+  background: var(--card-bg);
+  border-radius: 22px;
+  padding: 10px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.5);
+  transition: all 0.45s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-14px);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.7);
+}
+
+.project-card:hover::before {
+  opacity: 0.12;
+}
+
+.project-card h5 {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* ===============================
+   CONTACT
+================================ */
+#contact a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .section {
+    padding: 90px 0;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+  }
+}
